@@ -1,4 +1,6 @@
-<?php namespace App\Controllers;
+<?php
+
+namespace App\Controllers;
 
 class Home extends BaseController
 {
@@ -7,6 +9,10 @@ class Home extends BaseController
 		return view('welcome_message');
 	}
 
+	public function coba()
+	{
+		echo "Hello world $this->nama";
+	}
 	//--------------------------------------------------------------------
 
 }
