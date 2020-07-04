@@ -31,17 +31,19 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+$routes->get('/', 'Pages::index');
 
-$routes->get('/coba/index', 'Coba::index');
-$routes->get('/coba/about', 'Coba::about');
 
-// nangkap semua segmen di url
-// supaya url singkat
-$routes->get('/coba/(:any)/(:num)', 'Coba::about/$1/$2');
+// $routes->get('/coba/index', 'Coba::index');
+// $routes->get('/coba/about', 'Coba::about');
 
-// Akses controller dalam folder controller/admin
-$routes->get('/users', 'Admin\Users::index');
+// // nangkap semua segmen di url
+// // supaya url singkat
+// $routes->get('/coba/(:any)/(:num)', 'Coba::about/$1/$2');
+
+// // Akses controller dalam folder controller/admin
+// $routes->get('/users', 'Admin\Users::index');
+
 
 // Closure/ anonymous function / tanpa panggil controller dan method
 // $routes->get('/coba', function () {
