@@ -44,6 +44,7 @@ $routes->get('/', 'Pages::index');
 // // Akses controller dalam folder controller/admin
 // $routes->get('/users', 'Admin\Users::index');
 
+$routes->get('/komik/create', 'Komik::create');
 $routes->get('/komik/(:segment)', 'Komik::detail/$1');
 
 // Closure/ anonymous function / tanpa panggil controller dan method
