@@ -54,8 +54,12 @@ class Komik extends BaseController
 
   public function create()
   {
+    // // ngambil data session, jalanin session dulu -> di BaseController
+    // session();
+
     $data = [
-      'title' => 'Form tambah data komik'
+      'title' => 'Form tambah data komik',
+      'validation' => \Config\Services::validation()
     ];
 
     return view('komik/create', $data);
@@ -64,6 +68,24 @@ class Komik extends BaseController
   public function save()
   {
     // dd($this->request->getVar()); //Ambil request apapun bisa get,post
+
+    // Validasi input
+    // dari name 
+    if (!$this->validate([
+      'judul' => [
+        'rules' => 'required|is_unique[komik.judul]',
+        'errors' => [
+          'required' => '{field} komik harus diisi.',
+          'is_unique' => '{field} komik sudah ada.'
+        ]
+      ]
+    ])) {
+      $validation = \Config\Services::validation();
+
+      // Input dikirim ke session
+      return redirect()->to('/komik/create')->withInput()->with('vallidation', $validation);
+      // withInput => input dikirim kedalam session, buat fitur old
+    }
 
     $slug = url_title($this->request->getVar('judul'), '-', true); //membuat string menjadi huruf kecil semua dan spasinya hilang, spasi nya diganti
     $this->komikModel->save([
