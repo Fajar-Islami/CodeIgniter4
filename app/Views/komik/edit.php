@@ -15,7 +15,7 @@
         <div class="form-group row">
           <label for="judul" class="col-sm-2 col-form-label">Judul</label>
           <div class="col-sm-10">
-            <input type="text" name="judul" class="form-control <?= ($validation->hasError('judul')) ? 'is-invalid' : ''; ?>" id="judul" autofocus value=<?= (old('judul')) ? old('judul') : $komik['judul']; ?>>
+            <input type="text" name="judul" class="form-control <?= ($validation->hasError('judul')) ? 'is-invalid' : ''; ?>" id="judul" autofocus value="<?= (old('judul')) ? old('judul') : $komik['judul']; ?>">
 
             <div class="invalid-feedback">
               <?= $validation->getError('judul'); ?>
@@ -25,13 +25,13 @@
         <div class="form-group row">
           <label for="penulis" class="col-sm-2 col-form-label">Penulis</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" name="penulis" id="penulis" value=<?= (old('penulis')) ? old('penulis') : $komik['penulis']; ?>>
+            <input type="text" class="form-control" name="penulis" id="penulis" value="<?= (old('penulis')) ? old('penulis') : $komik['penulis']; ?>">
           </div>
         </div>
         <div class="form-group row">
           <label for="penerbit" class="col-sm-2 col-form-label">Penerbit</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" name="penerbit" id="penerbit" value=<?= (old('penerbit')) ? old('penerbit') : $komik['penerbit']; ?>>
+            <input type="text" class="form-control" name="penerbit" id="penerbit" value="<?= (old('penerbit')) ? old('penerbit') : $komik['penerbit']; ?>">
           </div>
         </div>
         <div class="form-group row">

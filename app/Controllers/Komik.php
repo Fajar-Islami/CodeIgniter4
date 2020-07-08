@@ -99,7 +99,7 @@ class Komik extends BaseController
     // Ambil gambar
     $fileSampul = $this->request->getFile('sampul');
 
-    // cek gambar ada atau tidak
+    // cek gambar tidak ada
     if ($fileSampul->getError() == 4) {
       $namaSampul = 'default.png';
     } else {
@@ -181,18 +181,13 @@ class Komik extends BaseController
         ]
       ]
     ])) {
-      // $validation = \Config\Services::validation();
-
-      // Input dikirim ke session
       return redirect()->to('/komik/edit/' . $this->request->getVar('slug'))->withInput();
-      // return redirect()->to('/komik/create')->withInput()->with('vallidation', $validation);
-      // withInput => input dikirim kedalam session, buat fitur old
     }
 
     // ambil file sampul
     $fileSampul = $this->request->getFile('sampul');
 
-    // cek gambar apa berubah/ tidak
+    // cek gambar tidak berubah
     if ($fileSampul->getError() == 4) {
       $namaSampul = $this->request->getVar('sampulLama');
     } else {
